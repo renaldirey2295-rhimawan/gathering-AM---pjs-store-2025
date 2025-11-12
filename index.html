@@ -1,1 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gathering AM dan PJS Store 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Efek fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    header {
+      background: linear-gradient(135deg, #0066cc, #00bcd4);
+      color: white;
+      text-align: center;
+      padding: 20px 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .header-title {
+      flex: 1;
+      text-align: center;
+      min-width: 250px;
+    }
+
+    .header-title h1 {
+      margin: 0;
+      font-size: 1.8em;
+    }
+
+    .header-title p {
+      margin: 5px 0 0;
+      font-size: 1em;
+      font-style: italic;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      border-left: 5px solid #00bcd4;
+      padding-left: 10px;
+      color: #0077b6;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .gallery img, .gallery video {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    a.download-btn, .peserta-btn, .lokasi-btn {
+      display: inline-block;
+      margin: 6px;
+      padding: 8px 15px;
+      background: #0077b6;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.12s, box-shadow 0.12s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    a.download-btn:hover, .peserta-btn:hover, .lokasi-btn:hover {
+      background: #005f8c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    }
+
+    /* efek saat ditekan */
+    .lokasi-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.14);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0077b6;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* Pencarian Peserta */
+    .search-box {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .search-box input {
+      width: 80%;
+      max-width: 400px;
+      padding: 10px;
+      border: 2px solid #0077b6;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    /* Modal Foto Peserta */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 300px;
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .close-btn {
+      margin-top: 10px;
+      padding: 6px 15px;
+      background: #0077b6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Animasi untuk mapSection */
+    #mapSection {
+      display: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 350ms ease, transform 350ms ease;
+    }
+    #mapSection.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+      }
+      .logo {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/sarirasagroup_logo-removebg-preview.png" alt="Logo Kiri" class="logo fade-in">
+    <div class="header-title fade-in">
+      <h1>Gathering Area Manager dan PJS Store 2025</h1>
+      <p>“Evaluasi Tepat, Action Cepat, Hasil Dahsyat”</p>
+    </div>
+    <img src="img/images-removebg-preview.png" alt="Logo Kanan" class="logo fade-in">
+  </header>
+
+  <section class="fade-in">
+    <h2>Tentang Acara</h2>
+    <p>
+      Acara gathering tahunan SariRasa Group bertujuan mempererat hubungan antar karyawan,
+      meningkatkan semangat kerja tim, dan menciptakan suasana kebersamaan di luar lingkungan kantor.
+    </p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Tujuan Acara</h2>
+    <ul>
+      <li>Meningkatkan kekompakan antar divisi.</li>
+      <li>Membangun komunikasi yang lebih baik antar tim.</li>
+      <li>Mengapresiasi kinerja seluruh karyawan selama tahun berjalan.</li>
+      <li>Menciptakan momen kebersamaan yang berkesan.</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <h2>📍 Lokasi Acara</h2>
+    <p>Acara ini akan dilaksanakan di <strong>Villa Mawar, Citeko, Puncak - Bogor</strong>.</p>
+
+    <!-- TOMBOL: menampilkan peta di halaman -->
+    <button class="lokasi-btn" onclick="toggleMap()">Lihat Lokasi di Halaman</button>
+
+    <!-- TOMBOL BARU: buka langsung ke aplikasi peta / Google Maps -->
+    <button class="lokasi-btn" onclick="openMapsNative()">Buka di Aplikasi Peta</button>
+
+    <div id="mapSection" style="margin-top:20px;">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3975.6010843367423!2d106.963!3d-6.6825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69b64b9d9999ff%3A0xf50a8c7bfa3fef0!2sVilla%20Mawar%20Citeko!5e0!3m2!1sid!2sid!4v1690187340849!5m2!1sid!2sid"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+
+      <div class="gallery" style="margin-top:15px;">
+        <img src="img/villa1.jpg" alt="Foto Villa Mawar 1">
+        <img src="img/villa2.jpg" alt="Foto Villa Mawar 2">
+        <img src="img/villa3.jpg" alt="Foto Villa Mawar 3">
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Galeri Foto</h2>
+    <div class="gallery">
+      <div>
+        <img src="img/foto1.jpg" alt="Foto Gathering 1">
+        <a class="download-btn" href="img/foto1.jpg" download>Download</a>
+      </div>
+      <div>
+        <img src="img/foto2.jpg" alt="Foto Gathering 2">
+        <a class="download-btn" href="img/foto2.jpg" download>Download</a>
+      </div>
+      <div>
+        <img src="img/foto3.jpg" alt="Foto Gathering 3">
+        <a class="download-btn" href="img/foto3.jpg" download>Download</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Video Acara</h2>
+    <div class="gallery">
+      <div>
+        <video controls>
+          <source src="video/video1.mp4" type="video/mp4">
+        </video>
+        <a class="download-btn" href="video/video1.mp4" download>Download Video</a>
+      </div>
+      <div>
+        <video controls>
+          <source src="video/video2.mp4" type="video/mp4">
+        </video>
+        <a class="download-btn" href="video/video2.mp4" download>Download Video</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Daftar Peserta</h2>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari nama peserta..." onkeyup="filterPeserta()" />
+    </div>
+    <div id="daftarPeserta">
+      <!-- Daftar 27 Peserta -->
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta1.jpg','Tiffany')">Tifany</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta2.jpg','M Alam Saputra')">M Alam Saputra</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta3.jpg','Okky Yuniar')">Okky Yuniar</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta4.jpg','Aaan Nurmansyah')">Aaan Nurmansyah</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta5.jpg','Renaldi Himawan')">Renaldi Himawan</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta6.jpg','Erwanda')">Erwanda</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta7.jpg','Nunung Nuryani')">Nunung Nuryani</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta8.jpg','Evie Sylvania')">Evie Sylvania</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta9.jpg','Devi Aryani')">Devi Aryani</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta10.jpg','Sendy Mulyana')">Sendy Mulyana</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta11.jpg','Rheno')">Rheno</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta12.jpg','Anandi')">Anandi</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta13.jpg','Nanda Dwi')">Nanda Dwi</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta14.jpg','Tohir')">Tohir</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta15.jpg','Roni Zebua')">Roni Zebua</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta16.jpg','Ostin')">Ostin</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta17.jpg','Johan Permadi')">Johan Permadi</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta18.jpg','Daneshwara Atthaya')">Daneshwara Atthaya</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta19.jpg','Habib Reza Alaydrus')">Habib Reza Alaydrus</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta20.jpg','Desi Korniasih')">Desi Korniasih</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta21.jpg','Adam')">Adam</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta22.jpg','Wulan')">Wulan</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta23.jpg','Abdul Latif')">Abdul Latif</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta24.jpg','Ulfa')">Ulfa</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta25.jpg','Made Okka')">Made Okka</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta26.jpg','Desi Korniasih (2)')">Desi Korniasih (2)</button>
+      <button class="peserta-btn" onclick="tampilkanFoto('img/peserta27.jpg','Contoh Nama')">Contoh Nama</button>
+    </div>
+  </section>
+
+  <div class="modal" id="fotoModal">
+    <div class="modal-content">
+      <h3 id="namaPeserta"></h3>
+      <img id="fotoPeserta" src="" alt="Foto Peserta">
+      <button class="close-btn" onclick="tutupModal()">Tutup</button>
+    </div>
+  </div>
+
+  <footer class="fade-in">
+    <p>© 2025 SariRasa Group | Acara Gathering Tahunan</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const fadeElements = document.querySelectorAll(".fade-in");
+      fadeElements.forEach((el, i) => {
+        el.style.animationDelay = i * 0.2 + "s";
+      });
+    });
+
+    function tampilkanFoto(src, nama) {
+      document.getElementById("fotoPeserta").src = src;
+      document.getElementById("namaPeserta").textContent = nama;
+      document.getElementById("fotoModal").style.display = "flex";
+    }
+
+    function tutupModal() {
+      document.getElementById("fotoModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("fotoModal");
+      if (event.target === modal) modal.style.display = "none";
+    }
+
+    function filterPeserta() {
+      const input = document.getElementById("searchInput") ? document.getElementById("searchInput").value.toLowerCase() : '';
+      const buttons = document.querySelectorAll("#daftarPeserta .peserta-btn");
+      buttons.forEach(btn => {
+        const nama = btn.textContent.toLowerCase();
+        btn.style.display = nama.includes(input) ? "inline-block" : "none";
+      });
+    }
+
+    // Toggle tampilan Google Maps di halaman dengan animasi
+    function toggleMap() {
+      const mapSection = document.getElementById("mapSection");
+      if (!mapSection.classList.contains('show')) {
+        // show with animation
+        mapSection.classList.add('show');
+      } else {
+        // hide with reverse animation
+        mapSection.classList.remove('show');
+        // keep display:block in CSS; class handles visibility via opacity/transform
+        // if you want remove from flow, you can set timeout to display:none but not necessary
+      }
+    }
+
+    // Buka langsung di aplikasi peta jika memungkinkan (mobile), atau Google Maps di tab baru (desktop)
+    function openMapsNative() {
+      const query = encodeURIComponent('Villa Mawar, Citeko, Puncak, Bogor');
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // iOS: try maps:// then fallback to Google Maps web
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        // iOS native maps
+        window.location.href = 'maps://?q=' + query;
+        // fallback after short delay
+        setTimeout(() => {
+          window.open('https://www.google.com/maps/search/?api=1&query=' + query, '_blank');
+        }, 800);
+        return;
+      }
+
+      // Android: try geo: URI (opens native maps apps), fallback to google maps web
+      if (/Android/.test(userAgent)) {
+        // Using geo: URI which most Android devices handle with a maps app
+        window.location.href = 'geo:0,0?q=' + query;
+        // fallback
+        setTimeout(() => {
+          window.open('https://www.google.com/maps/search/?api=1&query=' + query, '_blank');
+        }, 800);
+        return;
+      }
+
+      // Desktop / other: open Google Maps in new tab
+      window.open('https://www.google.com/maps/search/?api=1&query=' + query, '_blank');
+    }
+  </script>
+</body>
+</html>
 
